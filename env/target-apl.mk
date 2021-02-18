@@ -45,6 +45,8 @@ ifeq ($(filter crossndk,$(debug)),)
 cc := $(clang) $(more)
 cxx := clang++ $(more)
 
+include $(pwd)/target-cxx.mk
+
 ifeq ($(tidy)$(filter notidy,$(debug)),)
 debug += notidy
 endif
@@ -62,7 +64,7 @@ lflags += $(resource)/lib/darwin/libclang_rt.$(runtime).a
 more += -B$(dir $(clang))
 more += -fno-strict-return
 include $(pwd)/target-ndk.mk
-cxx += -stdlib=libc++
+include $(pwd)/target-cxx.mk
 
 xflags += -nostdinc++
 xflags += -isystem $(toolchain)/usr/include/c++/v1

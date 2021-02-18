@@ -52,6 +52,8 @@ cflags += -I$(pwd)/source
 $(call depend,$(pwd)/source/version.cpp.o,@/extra/revision.hpp)
 
 
+cflags += -I$(pwd)/range-v3/include
+
 cflags += -I$(pwd)/expected/include
 cflags += -I$(pwd)/url/include
 cflags += -I$(pwd)/url/src
